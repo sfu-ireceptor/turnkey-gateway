@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+    ireceptor-mysql:
+        image: mysql/mysql-server
+        environment:
+        MYSQL_ROOT_PASSWORD: Qz7WHjtZzZjZsHUL3tAv7yh7nNBH38e994jRZDPeYbdzhnYBCeU4bdC9rqESDtje
+        MYSQL_USER: ireceptor
+        MYSQL_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
+        MYSQL_DATABASE: ireceptorgw
+
+    ireceptor-gateway:
+        depends_on:
+            - ireceptor-mysql
+        image: localhost:5000/example/php-j3
+        environment:
+            DB_HOST: ireceptor-mysql
+            DB_DATABASE: ireceptorgw
+            DB_USERNAME: ireceptor
+            DB_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
+        ports:
+            - ${GATEWAY_PORT:-80}:80
