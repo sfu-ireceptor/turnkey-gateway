@@ -5,10 +5,10 @@ services:
     ireceptor-mysql:
         image: mysql/mysql-server
         environment:
-        MYSQL_ROOT_PASSWORD: Qz7WHjtZzZjZsHUL3tAv7yh7nNBH38e994jRZDPeYbdzhnYBCeU4bdC9rqESDtje
-        MYSQL_USER: ireceptor
-        MYSQL_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
-        MYSQL_DATABASE: ireceptorgw
+            MYSQL_ROOT_PASSWORD: Qz7WHjtZzZjZsHUL3tAv7yh7nNBH38e994jRZDPeYbdzhnYBCeU4bdC9rqESDtje
+            MYSQL_USER: ireceptor
+            MYSQL_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
+            MYSQL_DATABASE: ireceptorgw
 
     ireceptor-gateway:
         depends_on:
