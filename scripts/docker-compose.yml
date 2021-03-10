@@ -10,9 +10,13 @@ services:
             MYSQL_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
             MYSQL_DATABASE: ireceptorgw
 
+    ireceptor-mongodb:
+        image: mongo:4
+
     ireceptor-gateway:
         depends_on:
             - ireceptor-mysql
+            - ireceptor-mongodb
         build: ./gateway
         image: webapp:tag
         environment:
