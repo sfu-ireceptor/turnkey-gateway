@@ -12,7 +12,9 @@ services:
 
     ireceptor-mongodb:
         image: mongo:4
-
+        environment:
+            MONGO_INITDB_DATABASE: ireceptor
+            
     ireceptor-gateway:
         depends_on:
             - ireceptor-mysql
