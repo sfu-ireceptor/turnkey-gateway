@@ -22,8 +22,8 @@ services:
         build:
             context: ./gateway
             args:
-               DB_HOST: ireceptor-mysql 
-               DB_DATABASE: ireceptorgw
+                DB_HOST: ireceptor-mysql 
+                DB_DATABASE: ireceptorgw
                 DB_USERNAME: ireceptor
                 DB_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
         image: webapp:tag
