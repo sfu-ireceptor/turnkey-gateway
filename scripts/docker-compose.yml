@@ -13,7 +13,8 @@ services:
     ireceptor-gateway:
         depends_on:
             - ireceptor-mysql
-        image: localhost:5000/example/php-j3
+        build: ./gateway
+        image: webapp:tag
         environment:
             DB_HOST: ireceptor-mysql
             DB_DATABASE: ireceptorgw
