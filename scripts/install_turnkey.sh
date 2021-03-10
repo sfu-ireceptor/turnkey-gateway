@@ -24,21 +24,39 @@ if [ -x "$(command -v docker-compose)" ]; then
 fi
 echo
 
-# download Docker images from Docker Hub
+# # download Docker images from Docker Hub
+# echo "Downloading Docker images from Docker Hub.."
+# sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway pull
+# echo "Done"
+# echo
+
+# download Docker images from Docker Hub or build
 echo "Downloading Docker images from Docker Hub.."
-sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway pull
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway build
 echo "Done"
 echo
 
-# # configure MySQL
-# echo "Configuring  MySQL.."
-# # sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway pull
-# # docker run -t --name=mysql2 -d mysql/mysql-server
-# docker run -t --name=mysql2 -d mysql/mysql-server bash
+echo "Starting iReceptor Gateway.."
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway up -d
+echo "Done"
+echo
 
-# sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-service run ireceptor-mysql bash
-# echo "Done"
-# echo
+echo "Initializing MySQL database.."
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
+		sh -c 'php artisan migrate'
+echo "Done"
+echo
+
+
+
+# # Create MySQL tables
+# RUN php artisan migrate
+
+# # Seed required tables
+# RUN php artisan db:seed
+
+# # Add fake users
+# RUN php artisan db:seed --class=UserSeeder
 
 # start turnkey
 ${SCRIPT_DIR}/start_turnkey.sh
