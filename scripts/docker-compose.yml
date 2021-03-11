@@ -29,6 +29,7 @@ services:
             DB_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
             CACHE_DB_HOST: ireceptor-mongodb
             CACHE_DB_DATABASE: ireceptor
-
+            IRECEPTOR_AUTH: false
+            IRECEPTOR_CANARIE: false
         ports:
             - ${GATEWAY_PORT:-80}:80
