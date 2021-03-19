@@ -47,6 +47,11 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
+# TODO
+        # php artisan migrate && \
+        # php artisan db:seed && \
+
+
 # start turnkey
 # ${SCRIPT_DIR}/start_turnkey.sh
 echo
