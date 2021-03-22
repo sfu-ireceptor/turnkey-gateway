@@ -36,8 +36,12 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-echo "Starting iReceptor Gateway.. (this will take about 30 sec)"
+echo "Starting iReceptor Gateway.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway up -d
+echo "Done"
+echo
+
+echo "Waiting for all containers to be ready (this will take about 30 sec)"
 sleep 30
 echo "Done"
 echo
