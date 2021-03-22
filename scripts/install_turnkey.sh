@@ -41,19 +41,14 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-echo "Initializing MySQL database.."
+echo "Initializing database.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
-		sh -c 'php artisan migrate && php artisan db:seed && php artisan db:seed --class=UserSeeder'
+		sh -c 'php artisan migrate && php artisan db:seed --class=RestServiceGroupSeeder && php artisan db:seed --class=RestServicePublicSeeder && php artisan db:seed --class=FieldNameSeeder && php artisan db:seed --class=UserSeeder'
 echo "Done"
 echo
 
-# TODO
-        # php artisan migrate && \
-        # php artisan db:seed && \
-
-
 # start turnkey
-# ${SCRIPT_DIR}/start_turnkey.sh
+${SCRIPT_DIR}/start_turnkey.sh
 echo
 
 # confirm successful installation
