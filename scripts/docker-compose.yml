@@ -18,6 +18,7 @@ services:
     ireceptor-gateway:
         depends_on:
             - ireceptor-mysql
+                condition: service_healthy
             - ireceptor-mongodb
         build:
             context: ./gateway
