@@ -38,6 +38,7 @@ echo
 
 echo "Starting iReceptor Gateway.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway up -d
+sleep 5
 echo "Done"
 echo
 
