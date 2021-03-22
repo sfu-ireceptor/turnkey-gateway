@@ -48,10 +48,6 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-# start turnkey
-${SCRIPT_DIR}/start_turnkey.sh
-echo
-
 # confirm successful installation
 echo "Congratulations, your iReceptor Gateway Turnkey is up and running."
 echo "For more information, go to https://github.com/sfu-ireceptor/turnkey-gateway"
