@@ -42,7 +42,7 @@ echo "Done"
 echo
 
 echo "Waiting for database to be ready.."
-while STATUS=$(docker inspect --format='{{.State.Health.Status}}' $(docker-compose --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do 
+while STATUS=$(docker inspect --format='{{.State.Health.Status}}' $(docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do 
 	printf .
 	sleep 1
 done
