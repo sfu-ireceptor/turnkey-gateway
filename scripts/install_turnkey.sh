@@ -18,7 +18,7 @@ echo "Installing Docker Compose.."
 if [ -x "$(command -v docker-compose)" ]; then
 	echo "Already installed."
   else
-	sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose > /dev/null 2>&1
+	sudo curl -L https://github.com/docker/compose/releases/download/1.28.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose > /dev/null 2>&1
 	sudo chmod +x /usr/local/bin/docker-compose
 	echo "Done"
 fi
@@ -41,14 +41,28 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-echo "Waiting for all containers to be ready (this will take about 30 sec)"
-sleep 30
+echo "Waiting for database to be ready.."
+while STATUS=$(docker inspect --format='{{.State.Health.Status}}' $(docker-compose --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do 
+	printf .
+	sleep 1
+done
 echo "Done"
 echo
 
-echo "Initializing database.."
+# echo "Waiting for all containers to be ready (this will take about 30 sec)"
+# sleep 30
+# echo "Done"
+# echo
+
+echo "Creating database tables.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
-		sh -c 'php artisan migrate && php artisan db:seed --class=RestServiceGroupSeeder && php artisan db:seed --class=RestServicePublicSeeder && php artisan db:seed --class=FieldNameSeeder && php artisan db:seed --class=UserSeeder'
+		sh -c 'php artisan migrate'
+echo "Done"
+echo
+
+echo "Seeding database.."
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
+		sh -c 'php artisan db:seed --class=RestServiceGroupSeeder && php artisan db:seed --class=RestServicePublicSeeder && php artisan db:seed --class=FieldNameSeeder && php artisan db:seed --class=UserSeeder'
 echo "Done"
 echo
 
