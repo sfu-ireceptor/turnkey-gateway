@@ -19,9 +19,7 @@ services:
         depends_on:
             - ireceptor-mysql
             - ireceptor-mongodb
-        build:
-            context: ./gateway
-        image: webapp:tag
+        image: ireceptor/gateway:${GATEWAY_TAG:-docker}
         environment:
             DB_HOST: ireceptor-mysql
             DB_DATABASE: ireceptorgw
@@ -29,6 +27,5 @@ services:
             DB_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
             CACHE_DB_HOST: ireceptor-mongodb
             CACHE_DB_DATABASE: ireceptor
-            MAIL_DRIVER: log
         ports:
             - ${GATEWAY_PORT:-80}:80

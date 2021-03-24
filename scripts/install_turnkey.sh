@@ -24,17 +24,17 @@ if [ -x "$(command -v docker-compose)" ]; then
 fi
 echo
 
-# # download Docker images from Docker Hub
-# echo "Downloading Docker images from Docker Hub.."
-# sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway pull
-# echo "Done"
-# echo
-
-# download Docker images from Docker Hub or build
+# download Docker images from Docker Hub
 echo "Downloading Docker images from Docker Hub.."
-sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway build
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway pull
 echo "Done"
 echo
+
+# # download Docker images from Docker Hub or build
+# echo "Downloading Docker images from Docker Hub.."
+# sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway build
+# echo "Done"
+# echo
 
 echo "Starting iReceptor Gateway.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway up -d
