@@ -30,17 +30,13 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-# # download Docker images from Docker Hub or build
-# echo "Downloading Docker images from Docker Hub.."
-# sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway build
-# echo "Done"
-# echo
-
+# start containers
 echo "Starting iReceptor Gateway.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway up -d
 echo "Done"
 echo
 
+# wait for mySQL to start accepting queries
 echo "Waiting for database to be ready.. (this will take about 30 sec)"
 while STATUS=$(docker inspect --format='{{.State.Health.Status}}' $(docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do 
 	printf .
@@ -49,20 +45,24 @@ done
 echo "Done"
 echo
 
-# echo "Waiting for all containers to be ready (this will take about 30 sec)"
-# sleep 30
-# echo "Done"
-# echo
-
+# create database tables
 echo "Creating database tables.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
 		sh -c 'php artisan migrate'
 echo "Done"
 echo
 
+# run database seeders
 echo "Seeding database.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
 		sh -c 'php artisan db:seed --class=RestServiceGroupSeeder && php artisan db:seed --class=RestServicePublicSeeder && php artisan db:seed --class=FieldNameSeeder && php artisan db:seed --class=UserSeeder'
+echo "Done"
+echo
+
+# cache repertoires for form widgets and charts
+echo "Caching repertoires.."
+sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
+		sh -c 'php artisan sample:cache'
 echo "Done"
 echo
 
