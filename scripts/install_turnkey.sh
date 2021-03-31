@@ -52,10 +52,16 @@ sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnk
 echo "Done"
 echo
 
-# run database seeders
-echo "Seeding database.."
+# run MySQL database seeders
+echo "Seeding MySQL database.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
 		sh -c 'php artisan db:seed --class=RestServiceGroupSeeder && php artisan db:seed --class=RestServicePublicSeeder && php artisan db:seed --class=FieldNameSeeder && php artisan db:seed --class=UserSeeder'
+echo "Done"
+echo
+
+# run MongoDB database seeders
+echo "Seeding MongoDB database.."
+docker-compose exec -T ireceptor-mongodb sh -c 'mongorestore --archive' < ${SCRIPT_DIR}/../data/sequence_counts.archive
 echo "Done"
 echo
 
