@@ -61,7 +61,7 @@ echo
 
 # run MongoDB database seeders
 echo "Seeding MongoDB database.."
-docker-compose exec -T ireceptor-mongodb sh -c 'mongorestore --archive' < ${SCRIPT_DIR}/../data/sequence_counts.archive
+docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-mongodb sh -c 'mongorestore --archive' < ${SCRIPT_DIR}/../data/sequence_counts.archive
 echo "Done"
 echo
 
