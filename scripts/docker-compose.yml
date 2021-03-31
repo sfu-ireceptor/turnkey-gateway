@@ -13,7 +13,7 @@ services:
     ireceptor-mongodb:
         image: mongo:4
         environment:
-            MONGO_INITDB_DATABASE: ireceptor
+            MONGO_INITDB_DATABASE: cache
 
     ireceptor-gateway:
         depends_on:
@@ -26,6 +26,6 @@ services:
             DB_USERNAME: ireceptor
             DB_PASSWORD: KPzKLctFMgS9XxkEFpEXHbNeyVeSHNnhDcEq4Gq7696M5Umm2EBdGDn5eRpQXyQ3
             CACHE_DB_HOST: ireceptor-mongodb
-            CACHE_DB_DATABASE: ireceptor
+            CACHE_DB_DATABASE: cache
         ports:
             - ${GATEWAY_PORT:-80}:80
