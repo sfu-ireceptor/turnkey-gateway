@@ -69,6 +69,7 @@ echo
 echo "Caching repertoires.."
 sudo docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway exec -T ireceptor-gateway \
 		sh -c 'php artisan sample:cache'
+echo
 echo "Done"
 echo
 
