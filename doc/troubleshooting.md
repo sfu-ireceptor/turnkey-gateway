@@ -24,7 +24,8 @@ which will return the list of Docker containers **currently running**:
 CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS                 PORTS                       NAMES
 926789c45052        ireceptor/gateway:docker   "docker-php-entrypoi…"   2 hours ago         Up 2 hours             0.0.0.0:80->80/tcp          turnkey-gateway_ireceptor-gateway_1
 76912d6b681f        mongo:4                    "docker-entrypoint.s…"   6 days ago          Up 2 hours             27017/tcp                   turnkey-gateway_ireceptor-mongodb_1
-2db737299d95        mysql/mysql-server         "/entrypoint.sh mysq…"   6 days ago          Up 2 hours (healthy)   3306/tcp, 33060-33061/tcp   turnkey-gateway_ireceptor-mysql_1```
+2db737299d95        mysql/mysql-server         "/entrypoint.sh mysq…"   6 days ago          Up 2 hours (healthy)   3306/tcp, 33060-33061/tcp   turnkey-gateway_ireceptor-mysql_1
+```
 
 ## Logging into the Docker containers
 
