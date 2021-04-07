@@ -62,5 +62,6 @@ Log into the gateway container and look in `storage/logs/laravel.log`:
 
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-gateway bash
+
 cat storage/logs/laravel.log
 ```
