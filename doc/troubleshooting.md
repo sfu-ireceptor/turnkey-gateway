@@ -1,7 +1,7 @@
 # Troubleshooting
 
 
-## List the Docker containers
+## Listing the Docker containers
 You can use docker-compose:
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway ps
@@ -29,34 +29,34 @@ CONTAINER ID        IMAGE                      COMMAND                  CREATED 
 
 ## Logging into the Docker containers
 
-### Log into the MySQL container (as root)
+### MySQL
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-mysql bash
 ```
 
-### Log into the MongoDB container (as root)
+### MongoDB
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-mongodb bash
 ```
 
-### Log into the gateway container as root
+### gateway
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-gateway bash
 ```
 
 ## Logs
 
-### View the MongoDB log
+### MongoDB
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway logs ireceptor-mongodb
 ```
 
-### View the MySQL log
+### MySQL
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway logs ireceptor-mysql
 ```
 
-### View the gateway log
+### gateway
 
 Log into the gateway container and look in `storage/logs/laravel.log`:
 
