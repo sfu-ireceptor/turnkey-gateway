@@ -44,7 +44,7 @@ curl localhost/login
 
 The HTML code of the login page should be displayed.
 
-Then go to <http://localhost> in your browser (replace "localhost" with your server URL if necessary) and log in using one of your users credentials.
+Then go to <http://localhost> in your browser (replace "localhost" with your server URL if necessary) and log in using one of your users credentials. Note: in this alpha version, the password is not verified.
 
 ## Starting and stopping the Turnkey
 This will start and stop the Docker containers:
@@ -54,6 +54,17 @@ scripts/start_turnkey.sh
 ```
 scripts/stop_turnkey.sh
 ```
+
+## Adding more users
+
+Edit `data/users.tsv`, then run:
+
+```
+scripts/load_users.sh
+```
+
+Note: existing users data will be updated in necessary.
+
 ## Other information
 
 ### If something looks wrong
