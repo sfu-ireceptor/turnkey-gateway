@@ -1,6 +1,6 @@
 # iReceptor Gateway Turnkey
 
-A "dockerized" iReceptor Gateway (:warning: alpha version).
+A "dockerized" iReceptor Gateway (alpha version :warning:).
 
 ## System requirements
 
