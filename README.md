@@ -9,24 +9,28 @@ A "dockerized" iReceptor Gateway (alpha version :warning:).
  
 ## Installation
 
-Download this repository:
+### Download this repository
 
 ```
 git clone https://github.com/sfu-ireceptor/turnkey-gateway.git
 ```
 
-Create a TSV file with your list of users in the `data` folder. Just copy and edit the example file:
+### Create a TSV file with your list of users
+
+Copy and edit the example file:
 
 ```
 cd turnkey-gateway
 cp data/users.tsv.example data/users.tsv
 
-vi data/users.tsv
-
-# note: you can add more users after the installation 
+vi data/users.tsv 
 ```
 
-Launch the installation script. Note: multiple Docker images will be downloaded from DockerHub. Total time estimate: 10-30 min.
+Note: more users can be added later
+
+### Launch the installation script.
+
+Note: multiple Docker images will be downloaded from DockerHub. Total time estimate: 10-30 min.
 
 ```
 scripts/install_turnkey.sh
