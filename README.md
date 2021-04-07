@@ -53,7 +53,7 @@ scripts/start_turnkey.sh
 ```
 ```
 scripts/stop_turnkey.sh
-
+```
 
 ### If something looks wrong
 - [Troubleshooting](doc/troubleshooting.md) :hammer:
