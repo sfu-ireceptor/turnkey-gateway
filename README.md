@@ -11,7 +11,7 @@ A "dockerized" iReceptor Gateway.
 - Linux Ubuntu (tested on Ubuntu 16.04)
 - `sudo` without password (often already enabled on virtual machines).
 
-Note: this turnkey is a quick and easy way to get a gateway up and running on a VM running Linux Ubuntu. You could instead install a gateway manually on a different system, by following the Docker files instructions and adapting them accordingly.
+Note: this turnkey is a quick and easy way to get a gateway up and running on a VM running Linux Ubuntu. You could instead do the installation manually on a different system, by following the Docker files instructions and adapting them accordingly.
  
 ## Installation
 
