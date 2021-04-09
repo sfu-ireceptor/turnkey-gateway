@@ -63,7 +63,28 @@ Edit `data/users.tsv`, then run:
 scripts/load_users.sh
 ```
 
-Note: existing users data will be updated in necessary.
+Note: existing users (with a username already in the database) will be updated in necessary.
+
+## Adding repositories
+
+Your gateway comes preloaded with the iReceptor Gateway public repositories. To add more repositoires, create `private_rest_services.tsv` from the existing example:
+
+```
+cp data/private_rest_services.tsv.example data/private_rest_services.tsv
+```
+
+Edit it (and remove the two fake repositories it contains). Make sure your repositories URLs end with `/airr/v1/` (don't forget the trailing slash).
+
+Then run:
+
+```
+scripts/load_private_repositories.sh
+```
+
+Your repositories will be enabled by default. Go to http://localhost/admin/databases (replace localhost by your server name).
+
+Check your repositories are enabled, and for each one, refresh the cached sequence counts and max_size/stats. Also, at the bottom of the page, click "Refresh cached repertoire metadata".
+
 
 ## Other information
 
