@@ -1,6 +1,8 @@
 # iReceptor Gateway Turnkey
 
-A "dockerized" iReceptor Gateway. :warning: It's an alpha version with the current limitations:
+A "dockerized" iReceptor Gateway.
+
+:warning: It's an alpha version with the current limitations:
 - long downloads will time out
 - user pages (user list, user profile) are not working
 
