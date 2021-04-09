@@ -1,11 +1,15 @@
 # iReceptor Gateway Turnkey
 
-A "dockerized" iReceptor Gateway (alpha version :warning:).
+A "dockerized" iReceptor Gateway. :warning: It's an alpha version with the current limitations:
+- long downloads will time out
+- user pages (user list, user profile) are not working
 
 ## System requirements
 
 - Linux Ubuntu (tested on Ubuntu 16.04)
 - `sudo` without password (often already enabled on virtual machines).
+
+Note: this turnkey is a quick and easy way to get a gateway up and running on a VM running Linux Ubuntu. You could instead install a gateway manually on a different system, by following the Docker files instructions and adapting them accordingly.
  
 ## Installation
 
