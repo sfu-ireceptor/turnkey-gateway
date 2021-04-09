@@ -71,7 +71,7 @@ Note: existing users (with a username already in the database) will be updated, 
 
 ## Adding repositories
 
-Your gateway comes preloaded with public AIRR repositories. To add more repositoires, create `private_rest_services.tsv` from the existing example:
+Your gateway comes preloaded with public AIRR repositories. To add more repositoires, create `private_rest_services.tsv`:
 
 ```
 cp data/private_rest_services.tsv.example data/private_rest_services.tsv
