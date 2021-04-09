@@ -50,13 +50,14 @@ Then go to that URL <http://localhost/login> in your browser and log as one of y
 
 
 ## Starting and stopping the Turnkey
-This will start and stop the Docker containers:
 ```
 scripts/start_turnkey.sh
 ```
 ```
 scripts/stop_turnkey.sh
 ```
+
+These scripts start and stop the Docker containers.
 
 ## Adding more users
 
