@@ -67,7 +67,7 @@ Edit `data/users.tsv`, then run:
 scripts/load_users.sh
 ```
 
-Note: existing users (with a username already in the database) will be updated in necessary.
+Note: existing users (with a username already in the database) will be updated, not duplicated.
 
 ## Adding repositories
 
