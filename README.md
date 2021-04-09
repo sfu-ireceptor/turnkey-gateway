@@ -90,7 +90,7 @@ Note: existing repositories (with a URL already in the database) will be updated
 
 Your repositories will be enabled by default. Go to http://localhost/admin/databases (replace localhost by your server name).
 
-Check your repositories are enabled, and for each one, refresh the cached sequence counts and max_size/stats. Also, at the bottom of the page, click "Refresh cached repertoire metadata".
+Check your repositories are enabled, and for each one, refresh the cached sequence counts and max_size/stats. Also, at the bottom of the page, click "Refresh cached repertoire metadata". Then go to the repertoires page and check your repository data is displayed properly: http://localhost/samples
 
 
 ## Other information
