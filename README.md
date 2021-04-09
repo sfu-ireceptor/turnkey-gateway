@@ -46,7 +46,7 @@ curl localhost/login
 
 The HTML code of the login page should be displayed.
 
-Then go to that URL <http://localhost/login> in your browser and log in using one of your previously defined users credentials. Note: in this alpha version, the password is not actually verified.
+Then go to that URL <http://localhost/login> in your browser and log as one of your previously defined users. Note: in this alpha version, the password is not actually verified.
 
 
 ## Starting and stopping the Turnkey
