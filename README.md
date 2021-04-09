@@ -77,7 +77,7 @@ Your gateway comes preloaded with public AIRR repositories. To add more reposito
 cp data/private_rest_services.tsv.example data/private_rest_services.tsv
 ```
 
-Edit it (and remove the two examples it contains). Make sure your repositories URLs end with `/airr/v1/` (don't forget the trailing slash).
+Edit it (and remove the two examples it contains). Make sure your repositories URLs end with `/airr/v1/` (don't forget the trailing slash!).
 
 Then run:
 
