@@ -85,6 +85,9 @@ Then run:
 scripts/load_private_repositories.sh
 ```
 
+Note: existing repositories (with a URL already in the database) will be updated, not duplicated.
+
+
 Your repositories will be enabled by default. Go to http://localhost/admin/databases (replace localhost by your server name).
 
 Check your repositories are enabled, and for each one, refresh the cached sequence counts and max_size/stats. Also, at the bottom of the page, click "Refresh cached repertoire metadata".
