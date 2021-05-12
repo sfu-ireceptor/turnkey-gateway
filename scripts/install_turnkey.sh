@@ -8,7 +8,7 @@ echo "Installing Docker.."
 if [ -x "$(command -v docker)" ]; then
 	echo "Already installed."
   else
-	sudo ${SCRIPT_DIR}/install_docker.sh > /dev/null 2>&1
+	sudo ${SCRIPT_DIR}/install_docker.sh > /dev/null
 	echo "Done"
 fi
 echo
