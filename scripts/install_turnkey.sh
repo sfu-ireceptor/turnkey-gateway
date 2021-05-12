@@ -38,7 +38,7 @@ echo
 
 # wait for mySQL to start accepting queries
 echo "Waiting for database to be ready.. (this will take about 30 sec)"
-while STATUS=$(docker inspect --format='{{.State.Health.Status}}' $(docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do 
+while STATUS=$(sudo docker inspect --format='{{.State.Health.Status}}' $(docker-compose --file ${SCRIPT_DIR}/docker-compose.yml --project-name turnkey-gateway ps -q ireceptor-mysql)); [ $STATUS != "healthy" ]; do
 	printf .
 	sleep 1
 done
