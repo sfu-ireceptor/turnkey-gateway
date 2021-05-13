@@ -29,6 +29,11 @@ CONTAINER ID        IMAGE                      COMMAND                  CREATED 
 
 ## Logging into the Docker containers
 
+### Web application (gateway)
+```
+sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-gateway bash
+```
+
 ### MySQL
 ```
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-mysql bash
@@ -39,10 +44,6 @@ sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gat
 sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-mongodb bash
 ```
 
-### gateway
-```
-sudo docker-compose --file scripts/docker-compose.yml --project-name turnkey-gateway exec ireceptor-gateway bash
-```
 
 ## Logs
 
